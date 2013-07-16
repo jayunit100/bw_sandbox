@@ -1,0 +1,37 @@
+We have to implement 3 transformations of a DNA String, by creating an implementation of the 
+Transformer class. 
+
+1) Burrows-Wheeler transform. Given a typical English text file, transform it into a text file in which sequences of the same character occur near each other many times.
+
+2) Move-to-front encoding. Given a text file in which sequences of the same character occur near each other many times, convert it into a text file in which certain characters appear more frequently than others.
+
+3) Huffman compression. Given a text file in which certain characters appear more frequently than others, compress it by encoding freqently occuring characters with short codewords and rare ones with long codewords. 
+
+
+For the first, you will create a new class: 
+
+public class BWTransform implements Transformer{
+  
+    public DataFile transform(DataFile input){
+    
+        //create a new data file, initialized with no contents.  
+  	    DataFile output = new DataFile(null);  
+  	    
+  	    //copy the input 
+  	    String toEdit = input.getContents();
+  	    ... do some stuff to the toEdit string ...
+  	    
+  	    //now, set contents of the new data file.
+  	    output.setContents(toEdit); 
+  	    
+  	    //return it. 
+  	    return output;
+    }
+}
+
+Now, you can apply the transformer in the BurrowsWheeler program's main method: 
+
+DataFile initialInput = new DataFile("GTTACCAGGACTACCAT"); 
+DataFile df = new BWTransform(initialInput).transform();
+
+
